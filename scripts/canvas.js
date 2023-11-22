@@ -21,7 +21,7 @@ export function loop() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     ctx.fillRect(0, 0, width, height);
     
-    while (balls.length < 4) {
+    while (balls.length < 20) {
         const size = random(10, 20);
         const ball = new Ball(
             random(0 + size, width - size),
