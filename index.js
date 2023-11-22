@@ -1,6 +1,8 @@
 const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext("2d");
 
+// Encontramos que en la construccion de la variable width 
+//habia un window.innerheight y debia de ser innerwidth
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
 
@@ -22,6 +24,7 @@ class Ball {
         this.size = size;
     }
 
+// En la función math.Pi quitamos los paraentesis q la siguen  
     draw() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
@@ -55,7 +58,8 @@ class Ball {
 
 const balls = [];
 
-
+//En la funcion loop, cuando se determina el ctx.fillStyle, 
+//cambiamos el rgba por (0,0,0,0.25) para que el fondo sea negro
 function loop() {
     ctx.fillStyle = 'rgba(0, 0, 0, 0.25)';
     ctx.fillRect(0, 0, width, height);
