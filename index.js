@@ -70,16 +70,16 @@ function loop() {
             size
             );
             
+            balls.push(ball);
+        }
+        for (const ball of balls) {
+            ball.draw();
+            ball.update();
             for (const otherBall of balls) {
                 if (ball !== otherBall) {
                     ball.collisionDetect(otherBall);
                 }
             }
-        balls.push(ball);
-    }
-    for (const ball of balls) {
-        ball.draw();
-        ball.update();
     }
 
     requestAnimationFrame(loop);
