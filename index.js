@@ -1,5 +1,5 @@
 const canvas = document.querySelector('canvas');
-const ctx = canvas.getContext('2d');
+const ctx = canvas.getContext("2d");
 
 const width = canvas.width = window.innerWidth;
 const height = canvas.height = window.innerHeight;
@@ -25,7 +25,7 @@ class Ball {
     draw() {
         ctx.beginPath();
         ctx.fillStyle = this.color;
-        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI());
+        ctx.arc(this.x, this.y, this.size, 0, 2 * Math.PI);
         ctx.fill();
     }
 
@@ -50,12 +50,6 @@ class Ball {
         if (distance < this.size + otherBall.size) {
             otherBall.color = this.color = randomRGB();
         }
-
-        for (const otherBall of balls) {
-            if (ball !== otherBall) {
-                ball.collisionDetect(otherBall);
-            }
-        }
     }
 }
 
@@ -74,8 +68,13 @@ function loop() {
             random(-7, 7),
             random(-7, 7),
             size
-        );
-    
+            );
+            
+            for (const otherBall of balls) {
+                if (ball !== otherBall) {
+                    ball.collisionDetect(otherBall);
+                }
+            }
         balls.push(ball);
     }
     for (const ball of balls) {
